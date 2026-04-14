@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моей любимой</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pink-light: #ffdeeb;
+            --pink-main: #ff85a1;
+            --pink-dark: #f6416c;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: #fff5f7;
+            color: #333;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Анимация заднего фона */
+        .bg-hearts {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Шапка */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ffafbd 0%, #ffc3a0 100%);
+            color: white;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(3rem, 10vw, 6rem);
+            margin-bottom: 10px;
+            text-shadow: 3px 3px 15px rgba(0,0,0,0.1);
+        }
+
+        .subtitle { font-size: 1.2rem; opacity: 0.9; }
+
+        /* Галерея */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            color: var(--pink-dark);
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .moments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(246, 65, 108, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            opacity: 0;
+            transform: translateY(30px);
+            border: 1px solid var(--pink-light);
+        }
+
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card:hover {
+            transform: scale(1.03) rotate(-1deg);
+            box-shadow: 0 20px 40px rgba(246, 65, 108, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .card-desc {
+            padding: 20px;
+            font-weight: 600;
+            color: var(--pink-dark);
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        /* Кнопка-сюрприз */
+        .surprise-section {
+            text-align: center;
+            padding: 60px 20px 100px;
+        }
+
+        .btn-love {
+            background: var(--pink-dark);
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            box-shadow: 0 10px 20px rgba(246, 65, 108, 0.3);
+            transition: 0.3s;
+        }
+
+        .btn-love:hover {
+            transform: translateY(-3px);
+            background: #e63946;
+        }
+
+        footer {
+            background: #fff;
+            padding: 40px;
+            text-align: center;
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.8rem;
+            color: var(--pink-dark);
+        }
+
+        .heart-particle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 999;
+            animation: fly 3s linear forwards;
+        }
+
+        @keyframes fly {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(50px) scale(0.5); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-hearts" id="bg-hearts"></div>
+
+    <header>
+        <h1>Для самой самой</h1>
+        <p class="subtitle">6 моментов, которые я хотел бы вспомнить вместе</p>
+    </header>
+
+    <div class="container">
+        <h2>Наша фотопленка</h2>
+        <div class="moments-grid">
+            <div class="card">
+                <img src="photo1.jpg" alt="Момент 1">
+                <div class="card-desc">Тот самый кадр, который я пересматриваю, когда скучаю 💖</div>
+            </div>
+            <div class="card">
+                <img src="photo2.jpg" alt="Момент 2">
+                <div class="card-desc">Наша самая сваговая фотография</div>
+            </div>
+            <div class="card">
+                <img src="photo3.jpg" alt="Момент 3">
+                <div class="card-desc">Самые нежные объятия 🤗</div>
+            </div>
+            <div class="card">
+                <img src="photo4.jpg" alt="Момент 4">
+                <div class="card-desc">Наше маленькое приключение </div>
+            </div>
+            <div class="card">
+                <img src="photo5.jpg" alt="Момент 5">
+                <div class="card-desc">Одна из моих самых любимых фотографий</div>
+            </div>
+            <div class="card">
+                <img src="photo6.jpg" alt="Момент 6">
+                <div class="card-desc">А здесь наша красненькая победа 🔒</div>
+            </div>
+        </div>
+    </div>
+
+    <section class="surprise-section">
+        <button class="btn-love" onclick="makeMagic()">Нажми на меня!</button>
+    </section>
+
+    <footer>
+        Люблю тебя всегда
+    </footer>
+
+    <script>
+        // Анимация при скролле
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.card').forEach(card => observer.observe(card));
+
+        // Магия при нажатии кнопки
+        function makeMagic() {
+            for(let i=0; i<50; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'heart-particle';
+                    heart.innerHTML = '❤️';
+                    heart.style.left = Math.random() * 100 + 'vw';
+                    heart.style.top = '90vh';
+                    heart.style.fontSize = Math.random() * 20 + 20 + 'px';
+                    heart.style.duration = Math.random() * 2 + 1 + 's';
+                    document.body.appendChild(heart);
+                    
+                    setTimeout(() => heart.remove(), 3000);
+                }, i * 50);
+            }
+        }
+
+        // Фоновые сердечки
+        function createBgHeart() {
+            const heart = document.createElement('div');
+            heart.style.position = 'absolute';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = '110vh';
+            heart.style.opacity = '0.3';
+            heart.style.fontSize = '20px';
+            heart.innerHTML = '🌸';
+            heart.style.transition = '3s linear';
+            document.getElementById('bg-hearts').appendChild(heart);
+
+            setTimeout(() => {
+                heart.style.transform = `translateY(-120vh) rotate(${Math.random() * 360}deg)`;
+            }, 100);
+
+            setTimeout(() => heart.remove(), 4000);
+        }
+        setInterval(createBgHeart, 1000);
+    </script>
+</body>
+</html>
